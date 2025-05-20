@@ -1,0 +1,11 @@
+:root {
+    --page-background-color: #edeff6;
+    --background-color: #fff;
+    --accent-color: #ffd74b;
+    --main-color: #161c35;
+    --secondary-color: #000;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+}

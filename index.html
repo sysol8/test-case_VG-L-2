@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Поиск попутчика</title>
+  </head>
+  <body class="page">
+    <search class="search">
+      <h1 class="title">Подберите идеального попутчика</h1>
+      <form class="search-form">
+        <details class="details">
+          <summary class="summary">Хобби</summary>
+          <fieldset class="checkbox-fieldset">
+            <legend class="visually-hidden">Выберите хобби</legend>
+            <label for="gym" class="checkbox-label">
+              <input
+                type="checkbox"
+                class="search-form__checkbox visually-hidden"
+                name="hobby"
+                id="gym"
+                value="gym"
+              />
+              <span class="search-form__pseudo-checkbox"></span>
+              Спортзал
+            </label>
+            <label for="hookah" class="checkbox-label">
+              <input
+                type="checkbox"
+                class="search-form__checkbox visually-hidden"
+                name="hobby"
+                id="hookah"
+                value="hookah"
+              />
+              <span class="search-form__pseudo-checkbox"></span>
+              Кальян
+            </label>
+            <label for="sofa" class="checkbox-label">
+              <input
+                type="checkbox"
+                class="search-form__checkbox visually-hidden"
+                name="hobby"
+                id="sofa"
+                value="sofa"
+              />
+              <span class="search-form__pseudo-checkbox"></span>
+              Диван
+            </label>
+          </fieldset>
+        </details>
+        <details class="details">
+          <summary class="summary">Музыка</summary>
+          <fieldset class="checkbox-fieldset">
+            <legend class="visually-hidden">Выберите музыку</legend>
+            <label for="hard-rock" class="checkbox-label">
+              <input
+                type="checkbox"
+                class="search-form__checkbox visually-hidden"
+                name="music"
+                id="hard-rock"
+                value="hard-rock"
+              />
+              <span class="search-form__pseudo-checkbox"></span>
+              Тяжелый рок
+            </label>
+            <label for="russian-rap" class="checkbox-label">
+              <input
+                type="checkbox"
+                class="search-form__checkbox visually-hidden"
+                name="music"
+                id="russian-rap"
+                value="russian-rap"
+              />
+              <span class="search-form__pseudo-checkbox"></span>
+              Русский рэп
+            </label>
+            <label for="eurodance" class="checkbox-label">
+              <input
+                type="checkbox"
+                class="search-form__checkbox visually-hidden"
+                name="music"
+                id="eurodance"
+                value="eurodance"
+              />
+              <span class="search-form__pseudo-checkbox"></span>
+              Евроденс
+            </label>
+          </fieldset>
+        </details>
+        <details class="details">
+          <summary class="summary">Еда</summary>
+          <fieldset class="checkbox-fieldset">
+            <legend class="visually-hidden">Выберите еду</legend>
+            <label for="meat" class="checkbox-label">
+              <input
+                type="checkbox"
+                class="search-form__checkbox visually-hidden"
+                name="food"
+                id="meat"
+                value="meat"
+              />
+              <span class="search-form__pseudo-checkbox"></span>
+              Мясоед
+            </label>
+            <label for="proper-nutrition" class="checkbox-label">
+              <input
+                type="checkbox"
+                class="search-form__checkbox visually-hidden"
+                name="food"
+                id="proper-nutrition"
+                value="proper-nutrition"
+              />
+              <span class="search-form__pseudo-checkbox"></span>
+              Сидит на ПП
+            </label>
+            <label for="vegan" class="checkbox-label">
+              <input
+                type="checkbox"
+                class="search-form__checkbox visually-hidden"
+                name="food"
+                id="vegan"
+                value="vegan"
+              />
+              <span class="search-form__pseudo-checkbox"></span>
+              Веган-сыроед
+            </label>
+          </fieldset>
+        </details>
+        <details class="details">
+          <summary class="summary">Транспорт</summary>
+          <fieldset class="checkbox-fieldset icons">
+            <legend class="visually-hidden">Выберите транспорт</legend>
+            <label for="" class="checkbox-label">
+              <input type="checkbox" class="checkbox visually-hidden" />
+              <svg class="checkbox-icon">
+                <use xlink:href="/__spritemap#icon-plane"></use>
+              </svg>
+            </label>
+            <label for="" class="checkbox-label">
+              <input type="checkbox" class="checkbox visually-hidden" />
+              <svg class="checkbox-icon">
+                <use xlink:href="/__spritemap#icon-car"></use>
+              </svg>
+            </label>
+            <label for="" class="checkbox-label">
+              <input type="checkbox" class="checkbox visually-hidden" />
+              <svg class="checkbox-icon">
+                <use xlink:href="/__spritemap#icon-bike"></use>
+              </svg>
+            </label>
+            <label for="" class="checkbox-label">
+              <input type="checkbox" class="checkbox visually-hidden" />
+              <svg class="checkbox-icon">
+                <use xlink:href="/__spritemap#icon-walk"></use>
+              </svg>
+            </label>
+          </fieldset>
+        </details>
+        <details class="details" open>
+          <summary class="summary" id="level">Левел</summary>
+          <fieldset class="numbers">
+            <legend class="visually-hidden">Числовой ввод</legend>
+            <label for="number-min" class="visually-hidden"
+              >Минимальное числовое значение</label
+            >
+            <input
+              type="number"
+              class="number"
+              id="number-min"
+              name="level"
+              value="0"
+              min="0"
+              max="100"
+              placeholder="0"
+            />
+            <div class="decoration"></div>
+            <label for="number-max" class="visually-hidden"
+              >Максимальное числовое значение</label
+            >
+            <input
+              value="100"
+              type="number"
+              class="number"
+              id="number-max"
+              name="level"
+              min="0"
+              max="100"
+              placeholder="100"
+            />
+          </fieldset>
+          <fieldset class="slider">
+            <legend class="visually-hidden">Ползунок</legend>
+            <label for="range-min" class="visually-hidden"
+              >Минимальное значение ползунка</label
+            >
+            <input type="range" class="range" name="level" id="range-min" min="0" max="100" />
+            <label for="range-max" class="visually-hidden"
+              >Максимальное значение ползунка</label
+            >
+            <input type="range" class="range" name="level" id="range-max" min="0" max="100" />
+            <div class="slider-track"></div>
+            <div class="slider-track--background"></div>
+          </fieldset>
+        </details>
+        <button type="submit" class="search-form__button">Показать</button>
+      </form>
+    </search>
+    <main class="content">
+      <section class="cards">
+        <ul class="cards__list"></ul>
+      </section>
+    </main>
+    <template id="card">
+      <li class="cards__list-item">
+        <article class="card">
+          <img class="card__avatar" src="" alt="" />
+          <h2 class="card__title"></h2>
+        </article>
+      </li>
+    </template>
+    <script type="module" src="./src/scripts/main.js"></script>
+  </body>
+</html>
