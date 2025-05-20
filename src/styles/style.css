@@ -12,6 +12,7 @@
 .title {
   font-size: clamp(2.2rem, 1.6286rem + 1.7857vw, 3rem);
   line-height: 1;
+  letter-spacing: 2%;
 }
 
 .search {

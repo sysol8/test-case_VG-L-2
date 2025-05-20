@@ -71,5 +71,34 @@ rangeMin.value = 0;
 rangeMax.value = 100;
 updateTrackFill();
 
+const countries = {
+  sri,
+  thai,
+  sey,
+  bel,
+  che,
+  usa,
+  aus,
+  dom,
+  bri,
+  ger
+}
+
+const transport = {
+  plane,
+  car,
+  bike,
+  walk
+}
+
+const users = [
+  {
+    id: 1,
+    name: "Таня Фирсова",
+    tags: ["ЗОЖ", "ПП", "Фитнес", "пляж", "авокадо", "смузи"],
+    countries: [sri, thai, sey],
+    transport: []
+  }
+]
 
 
