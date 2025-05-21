@@ -127,32 +127,32 @@
             </label>
           </fieldset>
         </details>
-        <details class="details">
+        <details class="details" open>
           <summary class="summary">Транспорт</summary>
           <fieldset class="checkbox-fieldset icons">
             <legend class="visually-hidden">Выберите транспорт</legend>
-            <label for="" class="checkbox-label">
-              <input type="checkbox" class="checkbox visually-hidden" />
-              <svg class="checkbox-icon">
-                <use xlink:href="/__spritemap#icon-plane"></use>
+            <label for="plane" class="checkbox-label icon-label">
+              <input type="checkbox" class="checkbox visually-hidden" name="transport" value="plane" id="plane" />
+              <svg class="checkbox-icon" viewBox="0 0 23 22">
+                <use xlink:href="/spritemap.svg#icon-plane"></use>
               </svg>
             </label>
-            <label for="" class="checkbox-label">
-              <input type="checkbox" class="checkbox visually-hidden" />
+            <label for="car" class="checkbox-label icon-label">
+              <input type="checkbox" class="checkbox visually-hidden" name="transport" value="car" id="car"/>
               <svg class="checkbox-icon">
-                <use xlink:href="/__spritemap#icon-car"></use>
+                <use xlink:href="/spritemap.svg#icon-car"></use>
               </svg>
             </label>
-            <label for="" class="checkbox-label">
-              <input type="checkbox" class="checkbox visually-hidden" />
+            <label for="bike" class="checkbox-label icon-label">
+              <input type="checkbox" class="checkbox visually-hidden" name="transport" value="bike" id="bike"/>
               <svg class="checkbox-icon">
-                <use xlink:href="/__spritemap#icon-bike"></use>
+                <use xlink:href="/spritemap.svg#icon-bike"></use>
               </svg>
             </label>
-            <label for="" class="checkbox-label">
-              <input type="checkbox" class="checkbox visually-hidden" />
+            <label for="walk" class="checkbox-label icon-label">
+              <input type="checkbox" class="checkbox visually-hidden" name="transport" value="walk" id="walk"/>
               <svg class="checkbox-icon">
-                <use xlink:href="/__spritemap#icon-walk"></use>
+                <use xlink:href="/spritemap.svg#icon-walk"></use>
               </svg>
             </label>
           </fieldset>
@@ -214,8 +214,36 @@
     <template id="card">
       <li class="cards__list-item">
         <article class="card">
-          <img class="card__avatar" src="" alt="" />
+          <div class="avatar-wrapper">
+            <img class="card__avatar" src="" alt="" />
+            <div class="likes--mobile">
+              <button class="like-button--mobile"></button>
+              <span class="likes__count">1,5 M</span>
+            </div>
+          </div>
           <h2 class="card__title"></h2>
+          <ul class="tags__list"></ul>
+          <section class="card__section countries">
+            <h3 class="section__title">Хочет посетить</h3>
+            <ul class="section__list countries__list"></ul>
+          </section>
+          <section class="card__section transport">
+            <h3 class="section__title">Транспорт</h3>
+            <ul class="section__list transport__list">
+              <li class="transport__list-item"></li>
+              <li class="transport__list-item"></li>
+              <li class="transport__list-item"></li>
+              <li class="transport__list-item"></li>
+            </ul>
+          </section>
+          <section class="card__section level">
+            <h3 class="section__title">Левел</h3>
+            <div class="level-wrapper">
+              <span class="level__number"></span>
+              <span class="level__text">level</span>
+            </div>
+          </section>
+          <div class="card__buttons"></div>
         </article>
       </li>
     </template>
