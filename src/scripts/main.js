@@ -64,9 +64,9 @@ inputMax.addEventListener("input", updateSliderFromInputs);
 rangeMin.addEventListener("input", updateInputsFromSlider);
 rangeMax.addEventListener("input", updateInputsFromSlider);
 
-inputMin.value = 0;
+inputMin.value = 30;
 inputMax.value = 100;
-rangeMin.value = 0;
+rangeMin.value = 30;
 rangeMax.value = 100;
 updateTrackFill();
 
@@ -116,7 +116,8 @@ const countries = {
 const users = [
   {
     id: 0,
-    name: "Таня Фирсова",
+    firstName: "Таня",
+    lastName: "Фирсова",
     tags: ["#ЗОЖ", "#ПП", "#Фитнес", "#пляж", "#авокадо", "#смузи"],
     countries: [countries.sri, countries.thai, countries.sey],
     transport: [],
@@ -128,7 +129,8 @@ const users = [
   },
   {
     id: 1,
-    name: "Петя Демин",
+    firstName: "Таня",
+    lastName: "Фирсова",
     tags: ["#бургер", "#бар", "#футбол", "#концерт", "#крафт"],
     countries: [countries.bel, countries.cze],
     transport: [],
@@ -140,7 +142,8 @@ const users = [
   },
   {
     id: 2,
-    name: "Марк Смолов",
+    firstName: "Таня",
+    lastName: "Фирсова",
     tags: ["#рэп", "#тату", "#хайпбист", "#кроссовки", "#суприм"],
     countries: [countries.usa, countries.aus, countries.dom],
     transport: [],
@@ -152,7 +155,8 @@ const users = [
   },
   {
     id: 3,
-    name: "Лариса Роговая",
+    firstName: "Таня",
+    lastName: "Фирсова",
     tags: ["#образование", "#карьера", "#учеба", "#линкедин"],
     countries: [countries.bri, countries.ger],
     transport: [],
@@ -169,7 +173,6 @@ function renderSearchResults() {
   const usersList = document.querySelector(".cards__list");
 
   const transportList = document.querySelector(".transport__list");
-  const likeButton = document.querySelector("button-like");
   const likes = document.querySelector(".likes");
   const level = document.querySelector(".level");
 
@@ -179,21 +182,17 @@ function renderSearchResults() {
 
     card.id = `card-id-${user.id}`;
 
-    /* if (user.online) {
-      card.classList.add("online");
-    }
-    
-    const likeButton = clone.querySelector("button-like");
-    if (user.isLiked) {
-      likeButton.classList.add("is-liked");
-    }
- */
+    const likeButton = clone.querySelector(".like-button");
+    likeButton.addEventListener("click", function () {
+      this.classList.toggle("is-active");
+    })
+
     const userName = clone.querySelector(".card__title");
-    userName.textContent = user.name;
+    userName.innerHTML = `${user.firstName} <br class="name-break"/>${user.lastName}`;
 
     const avatar = clone.querySelector(".card__avatar");
     avatar.src = user.src;
-    avatar.alt = `Фотография пользователя: ${user.name}`;
+    avatar.alt = `Фотография пользователя: ${user.firstName} ${user.lastName}`;
 
     const tagsList = clone.querySelector(".tags__list");
     user.tags.forEach((tag) => {

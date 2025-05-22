@@ -1,11 +1,20 @@
 :root {
-    --page-background-color: #edeff6;
-    --background-color: #fff;
-    --accent-color: #ffd74b;
-    --main-color: #1d2e5b;
-    --secondary-color: #000;
+  --page-background-color: #edeff6;
+  --background-color: #fff;
+  --accent-color: #ffd74b;
+  --accent-color-dark: #f3c72b;
+  --main-color: #1d2e5b;
+  --main-color-dark: #161c35;
 
-    --font-weight-regular: 400;
-    --font-weight-medium: 500;
-    --font-weight-bold: 700;
+  --secondary-color: #000;
+  --aside-color: #444;
+
+  --heart-color: #F02323;
+  --heart-background-color: #f9eaea;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --font: "Blogger Sans", Arial, Helvetica, sans-serif;
 }
