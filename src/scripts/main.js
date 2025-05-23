@@ -120,7 +120,7 @@ const users = [
     lastName: "Фирсова",
     tags: ["#ЗОЖ", "#ПП", "#Фитнес", "#пляж", "#авокадо", "#смузи"],
     countries: [countries.sri, countries.thai, countries.sey],
-    transport: [],
+    transport: ["plane"],
     level: 99,
     isLiked: true,
     likes: "1.5 M",
@@ -129,11 +129,11 @@ const users = [
   },
   {
     id: 1,
-    firstName: "Таня",
-    lastName: "Фирсова",
+    firstName: "Петя",
+    lastName: "Демин",
     tags: ["#бургер", "#бар", "#футбол", "#концерт", "#крафт"],
     countries: [countries.bel, countries.cze],
-    transport: [],
+    transport: ["plane", "car", "walk"],
     level: 80,
     isLiked: false,
     likes: "1500",
@@ -142,11 +142,11 @@ const users = [
   },
   {
     id: 2,
-    firstName: "Таня",
-    lastName: "Фирсова",
+    firstName: "Марк",
+    lastName: "Смолов",
     tags: ["#рэп", "#тату", "#хайпбист", "#кроссовки", "#суприм"],
     countries: [countries.usa, countries.aus, countries.dom],
-    transport: [],
+    transport: ["plane", "bike"],
     level: 25,
     isLiked: false,
     likes: "170",
@@ -155,11 +155,11 @@ const users = [
   },
   {
     id: 3,
-    firstName: "Таня",
-    lastName: "Фирсова",
+    firstName: "Лариса",
+    lastName: "Рогова",
     tags: ["#образование", "#карьера", "#учеба", "#линкедин"],
     countries: [countries.bri, countries.ger],
-    transport: [],
+    transport: ["plane", "car"],
     level: 50,
     isLiked: false,
     likes: "23",
@@ -172,9 +172,14 @@ function renderSearchResults() {
   const template = document.querySelector("#card");
   const usersList = document.querySelector(".cards__list");
 
-  const transportList = document.querySelector(".transport__list");
-  const likes = document.querySelector(".likes");
-  const level = document.querySelector(".level");
+  const checkboxes = document.querySelectorAll('.icons__checkbox');
+  checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener('change', function () {
+    const icon = this.closest('.icon-label').querySelector('.checkbox-icon');
+    icon.classList.toggle('is-active', this.checked);
+  });
+});
+
 
   users.forEach((user) => {
     const clone = template.content.cloneNode(true);
@@ -220,6 +225,30 @@ function renderSearchResults() {
       countriesListItem.appendChild(countryFlag);
       countriesListItem.appendChild(countryName);
     });
+
+    const transportIcons = clone.querySelectorAll(".transport__icon");
+
+    transportIcons.forEach((icon) => {
+      const id = icon.id;
+      const type = id.replace("-icon", "");
+      if (user.transport.includes(type)) {
+        icon.classList.add("is-active");
+      }
+    });
+
+    const levelNumber = clone.querySelector(".level__number");
+    levelNumber.textContent = user.level;
+
+    const circle = clone.querySelector(".progress-ring__circle");
+    const radius = circle.r.baseVal.value;
+    const circumference = 2 * Math.PI * radius;
+
+    circle.style.strokeDasharray = `${circumference} ${circumference}`;
+    circle.style.strokeDashoffset = circumference;
+
+    const offset = circumference - (user.level / 100) * circumference;
+    circle.style.strokeDashoffset = offset;
+
 
     usersList.append(card);
   });

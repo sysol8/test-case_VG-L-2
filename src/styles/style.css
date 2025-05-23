@@ -106,6 +106,21 @@
   padding-block: 1.6rem 0.9rem;
 }
 
+.icon-label {
+  background-color: var(--decoration-color);
+}
+
+.checkbox-icon.is-active {
+  opacity: 1;
+}
+
+.checkbox-icon {
+  width: 1.7rem;
+  height: 1.7rem;
+  display: flex;
+  opacity: 0.15;
+}
+
 .checkbox-label:hover .search-form__pseudo-checkbox {
   background-color: var(--page-background-color);
 }
@@ -138,10 +153,6 @@
   inline-size: 3.2rem;
   block-size: 3.2rem;
   border: none /* 1px solid var(--background-color) */;
-}
-
-.checkbox-icon {
-  display: flex;
 }
 
 .checkbox-label:has(:focus-visible):has(.checkbox-icon) {
@@ -319,11 +330,11 @@
   background-color: var(--background-color);
   block-size: 100%;
   inline-size: 100%;
-  padding: 1.5rem 2rem 2.3rem;
+  padding: 1.5rem 2rem 1.4rem;
   color: var(--main-color);
   display: grid;
-  grid-template-columns: min-content 1fr;
-  column-gap: 1.6rem;
+  grid-template-columns: 7rem 1fr;
+  column-gap: 1.4rem;
   position: relative;
 }
 
@@ -344,30 +355,36 @@
   border-radius: 50%;
 }
 
-.like-button.is-active {
-  background-color: var(--heart-background-color);
+.likes {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .likes--mobile {
   position: absolute;
   bottom: 0;
   right: 0;
-  display: flex;
-  align-items: center;
   gap: 0.4rem;
   transform: translate(70%, 0);
-  flex-wrap: nowrap;
-  white-space: nowrap;
 }
 
-.like-button--mobile {
-  inline-size: 3rem;
-  block-size: 3rem;
+.like-button {
   background-color: #e2e5f2;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.like-button--mobile {
+  inline-size: 3rem;
+  block-size: 3rem;
+}
+
+.like-button.is-active {
+  background-color: var(--heart-background-color);
 }
 
 .heart {
@@ -387,10 +404,28 @@
   font-size: 1.4rem;
 }
 
+.card__section {
+  padding-inline: 0.6rem;
+}
+
+.section__title {
+  text-transform: lowercase;
+  font-size: 1.5rem;
+  color: var(--aside-color);
+  font-weight: var(--font-weight-regular);
+  position: relative;
+}
+
 .card__title {
   font-size: 2rem /* clamp(2rem, 1.2857rem + 2.2321vw, 3rem) */;
   font-weight: var(--font-weight-bold);
   line-height: 1;
+}
+
+.tags {
+  grid-column: 1/3;
+  line-height: 1.6;
+  padding-block: 1.2rem;
 }
 
 .tags__list {
@@ -399,7 +434,6 @@
   font-size: clamp(1.5rem, 1.1429rem + 1.1161vw, 2rem);
   line-height: 1.8rem;
   color: var(--aside-color);
-  grid-column: 1/3;
 }
 
 .tags__list-item:not(:last-child)::after {
@@ -413,7 +447,8 @@
 .countries__list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.8rem;
+  padding-block: 1.8rem 0.8rem;
 }
 
 .countries__list-item {
@@ -431,4 +466,122 @@
   text-transform: uppercase;
   font-weight: var(--font-weight-medium);
   color: var(--main-color);
+}
+
+.section-wrapper {
+  display: grid;
+  grid-template-columns: min-content min-content;
+  grid-column: 1/-1;
+  justify-content: space-between;
+}
+
+.card__section:is(.transport),
+.card__section:is(.level) {
+  padding-inline: 0;
+}
+
+.transport {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.transport .section__title {
+  padding-inline: 0.6rem;
+}
+
+.transport__list {
+  display: flex;
+  gap: 0.1rem;
+  padding-block-start: 0.8rem;
+}
+
+.transport__list-item {
+  inline-size: 3.2rem;
+  block-size: 3.2rem;
+  background-color: var(--decoration-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transport__icon {
+  block-size: 1.6rem;
+  opacity: 0.15;
+}
+
+.transport__icon.is-active {
+  opacity: 1;
+}
+
+.level {
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 1rem;
+}
+
+.level .section__title {
+  padding-inline: 0.6rem;
+}
+
+.level-wrapper {
+  inline-size: 4.5rem;
+  block-size: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.level__number {
+  font-size: 2.4rem;
+  font-weight: var(--font-weight-bold);
+  z-index: 2;
+  position: relative;
+}
+
+.level__text {
+  display: none;
+}
+
+.progress-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.progress-ring__background {
+  fill: none;
+  stroke-width: 6;
+}
+
+.progress-ring__circle {
+  fill: none;
+  stroke: var(--accent-color, #4CAF50);
+  stroke-width: 6;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.4s ease;
+}
+
+
+.card__buttons {
+  grid-column: 1/-1;
+  padding-block: 1.5rem 1rem;
+}
+
+.card__button {
+  display: inline-block;
+  padding-block: 1.1rem;
+  background-color: var(--accent-color);
+  inline-size: 100%;
+  border-radius: 2.5rem;
+  font-size: 1.7rem;
+  line-height: 1.7rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
 }
